@@ -1,0 +1,8 @@
+{
+  "name": "typescript-execution-env",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^16.0.0"
+  }
+}
