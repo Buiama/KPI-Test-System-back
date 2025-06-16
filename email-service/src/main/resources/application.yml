@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: email-service
+  config:
+    import:
+    - "configserver:http://localhost:8888"
+    - "vault://"
+  cloud:
+    config:
+      fail-fast: true
+    vault:
+      uri: http://localhost:8200
+      kv:
+        enabled: true
+        backend: secret
+        application-name: kpi-test-system
+      fail-fast: true
