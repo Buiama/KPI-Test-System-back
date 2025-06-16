@@ -1,0 +1,23 @@
+server:
+  port: 9100
+
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: ${database.url}
+    username: ${database.username}
+    password: ${database.password}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    database: sql_server
+    database-platform: org.hibernate.dialect.SQLServerDialect
+
+security:
+  jwt:
+    secret-key: ${jwt.secret-key}
+    token:
+      expiration: 10800000
+    refresh:
+      token:
+        expiration: 25200000

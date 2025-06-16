@@ -1,0 +1,14 @@
+server:
+  port: 9300
+
+spring:
+  application:
+    name: code-execution-service
+  datasource:
+    url: ${database.url}
+    username: ${database.username}
+    password: ${database.password}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    database: sql_server
+    database-platform: org.hibernate.dialect.SQLServerDialect

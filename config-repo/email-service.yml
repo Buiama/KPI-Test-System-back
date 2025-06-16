@@ -1,0 +1,19 @@
+server:
+  port: 9400
+
+spring:
+  application:
+    name: email-service
+  mail:
+    username: ${email.username}
+    password: ${email.password}
+    host: ${email.host}
+    port: 1025
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true

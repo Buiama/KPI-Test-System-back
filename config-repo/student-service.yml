@@ -1,0 +1,14 @@
+#server:
+#  port: 9200
+#
+#spring:
+#  application:
+#    name: student-service
+#  datasource:
+#    url: ${database.url}
+#    username: ${database.username}
+#    password: ${database.password}
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#  jpa:
+#    database: sql_server
+#    database-platform: org.hibernate.dialect.SQLServerDialect

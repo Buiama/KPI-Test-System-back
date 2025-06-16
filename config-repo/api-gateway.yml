@@ -1,0 +1,40 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/v1/login/**, /api/v1/registration/**, /api/v1/account/**, /api/v1/logout, /api/v1/admin/**, /api/v1/teachers/**, /api/v1/groups/**
+        - id: code-execution-service
+          uri: lb://code-execution-service
+          predicates:
+            - Path=/api/v1/code/**, /api/v1/assignments/**, /api/v1/tests/**, /api/v1/evaluation/**
+        - id: email-service
+          uri: lb://email-service
+          predicates:
+            - Path=/api/v1/email/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+              - PATCH
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 3600
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          jwk-set-uri: http://auth-service/api/v1/jwks
