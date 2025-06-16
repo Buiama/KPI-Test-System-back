@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: auth-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+    vault:
+      uri: http://localhost:8200
+      kv:
+        enabled: true
+        backend: secret
+        application-name: kpi-test-system
+      fail-fast: true
+  config:
+    import: vault://secret/kpi-test-system
